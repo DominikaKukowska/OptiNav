@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Media;
@@ -14,6 +15,10 @@ namespace OptiNavWPF
     public partial class MainWindow : Window
     {
         private string _fileName;
+
+        private string _grayscaled_fileName;
+
+        private long _grayscaled_time_elapsed;
 
         public MainWindow()
         {
@@ -41,14 +46,32 @@ namespace OptiNavWPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            RunGrayscale();
+            GrayscaledImage.Source = new BitmapImage(new Uri(_grayscaled_fileName));
+            TextBlock.Text = $"Grayscale processing time: {_grayscaled_time_elapsed} ms";
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += (o, args) => RunGrayscale();
+            backgroundWorker.RunWorkerCompleted += (o, args) =>
+            {
+                GrayscaledImage.Source = new BitmapImage(new Uri(_grayscaled_fileName));
+                TextBlock.Text = $"Grayscale processing time: {_grayscaled_time_elapsed} ms";
+            };
+            backgroundWorker.RunWorkerAsync();
+        }
+
+        private void RunGrayscale()
+        {
             var originalBitmap = ImageProcessing.LoadImage(_fileName);
             var stopwatch = Stopwatch.StartNew();
             var newBitmap = ImageProcessing.Grayscale(originalBitmap);
             stopwatch.Stop();
-            var newFileName = _fileName + "temp";
-            ImageProcessing.SaveImage(newBitmap, newFileName);
-            GrayscaledImage.Source = new BitmapImage(new Uri(newFileName));
-            TextBlock.Text = $"Grayscale processing time: {stopwatch.ElapsedMilliseconds} ms";
+            _grayscaled_fileName = _fileName + "temp";
+            _grayscaled_time_elapsed = stopwatch.ElapsedMilliseconds;
+            ImageProcessing.SaveImage(newBitmap, _grayscaled_fileName);
         }
     }
 }
