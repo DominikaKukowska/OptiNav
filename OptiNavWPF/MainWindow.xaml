@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OptiNavWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="OptiNav" Height="350" Width="525">
     <Grid>
-        
+        <Image Name="OriginalImage" HorizontalAlignment="Left" Height="237" Margin="25,25,0,0" VerticalAlignment="Top" Width="224"/>
+        <Image Name="GrayscaledImage" HorizontalAlignment="Left" Height="237" Margin="271,25,0,0" VerticalAlignment="Top" Width="224"/>
+        <Button Content="Load Image" HorizontalAlignment="Left" Margin="96,281,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Use Grayscale" HorizontalAlignment="Left" Margin="356,281,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click_1"/>
+        <TextBlock HorizontalAlignment="Left" Name="TextBlock" Margin="198,275,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" Height="34"/>
+
     </Grid>
 </Window>

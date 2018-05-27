@@ -41,7 +41,8 @@ namespace OptiNavLibrary
                 for (var y = 0; y < clone.Height; y++)
                 {
                     var originalColor = clone.GetPixel(x, y);
-                    var newColor = Color.FromArgb((int) redRatio * originalColor.R, (int) greenRatio * originalColor.G, (int) blueRatio * originalColor.B);
+                    var gray = (byte) (redRatio * originalColor.R + greenRatio * originalColor.G + blueRatio * originalColor.B);
+                    var newColor = Color.FromArgb(gray, gray, gray);
                     clone.SetPixel(x, y, newColor);
                 }
             }

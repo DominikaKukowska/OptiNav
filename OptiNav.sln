@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptiNavLibrary", "OptiNavLibrary\OptiNavLibrary.csproj", "{79E5A629-02DD-4EEB-A3A6-76B31E0CAC3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptiNavWPF", "OptiNavWPF\OptiNavWPF.csproj", "{42C9CE04-D967-4119-98D9-417E22A94379}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{79E5A629-02DD-4EEB-A3A6-76B31E0CAC3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79E5A629-02DD-4EEB-A3A6-76B31E0CAC3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79E5A629-02DD-4EEB-A3A6-76B31E0CAC3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C9CE04-D967-4119-98D9-417E22A94379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C9CE04-D967-4119-98D9-417E22A94379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C9CE04-D967-4119-98D9-417E22A94379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C9CE04-D967-4119-98D9-417E22A94379}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
